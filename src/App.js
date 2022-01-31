@@ -20,6 +20,122 @@ import MyVerticallyCenteredModal from './Modal'
 // import Facoins from './FaCoins.svg';
 // import FachartPie from './FaChartPie.svg';
 
+const searchUser = () => {
+    let userData = document
+        .getElementById('searchUser__Name')
+        .value.toUpperCase()
+    let container = document.getElementById('searchUser__Name__Body')
+    let tr = container.getElementsByTagName('tr')
+
+    for (let i = 0; i < tr.length; i++) {
+        const element = tr[i]
+
+        let text = element.getElementsByTagName('td')
+        let tdText = ''
+
+        // console.log(text);
+
+        for (let j = 0; j < text.length; j++) {
+            tdText += text[j].innerText
+        }
+        // console.log(cardText);
+
+        let textValue = tdText
+        if (textValue.toUpperCase().indexOf(userData) > -1) {
+            element.style.display = ''
+        } else {
+            element.style.display = 'none'
+        }
+    }
+}
+
+const searchProduct = () => {
+    let userData = document
+        .getElementById('searchProduct__Name')
+        .value.toUpperCase()
+    let container = document.getElementById('searchProduct__Name__Body')
+    let tr = container.getElementsByTagName('tr')
+
+    for (let i = 0; i < tr.length; i++) {
+        const element = tr[i]
+
+        let text = element.getElementsByTagName('td')
+        let tdText = ''
+
+        // console.log(text);
+
+        for (let j = 0; j < text.length; j++) {
+            tdText += text[j].innerText
+        }
+        // console.log(cardText);
+
+        let textValue = tdText
+        if (textValue.toUpperCase().indexOf(userData) > -1) {
+            element.style.display = ''
+        } else {
+            element.style.display = 'none'
+        }
+    }
+}
+
+const searchOrder = () => {
+    let userData = document
+        .getElementById('searchOrder__Name')
+        .value.toUpperCase()
+    let container = document.getElementById('searchOrder__Name__Body')
+    let tr = container.getElementsByTagName('tr')
+
+    for (let i = 0; i < tr.length; i++) {
+        const element = tr[i]
+
+        let text = element.getElementsByTagName('td')
+        let tdText = ''
+
+        // console.log(text);
+
+        for (let j = 0; j < text.length; j++) {
+            tdText += text[j].innerText
+        }
+        // console.log(cardText);
+
+        let textValue = tdText
+        if (textValue.toUpperCase().indexOf(userData) > -1) {
+            element.style.display = ''
+        } else {
+            element.style.display = 'none'
+        }
+    }
+}
+
+const searchCategory = () => {
+    let userData = document
+        .getElementById('searchCategory__Name')
+        .value.toUpperCase()
+    let container = document.getElementById('searchCategory__Name__Body')
+    let tr = container.getElementsByTagName('tr')
+
+    for (let i = 0; i < tr.length; i++) {
+        const element = tr[i]
+
+        let text = element.getElementsByTagName('td')
+        let tdText = ''
+
+        // console.log(text);
+
+        for (let j = 0; j < text.length; j++) {
+            tdText += text[j].innerText
+        }
+        // console.log(cardText);
+
+        let textValue = tdText
+        if (textValue.toUpperCase().indexOf(userData) > -1) {
+            element.style.display = ''
+        } else {
+            element.style.display = 'none'
+        }
+    }
+}
+
 const Dashboard = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
@@ -32,7 +148,7 @@ const Dashboard = () => {
             },
         }
         axios
-            .get('http://localhost:4000/admin/dashboard', config)
+            .get('https://nft-backend.unicus.one/admin/dashboard', config)
             .then((result) => {
                 setData(result.data)
                 setLoading(false)
@@ -130,6 +246,7 @@ const Users = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
+    const [details, setDetails] = useState({})
 
     useEffect(() => {
         setLoading(true)
@@ -139,7 +256,7 @@ const Users = () => {
             },
         }
         axios
-            .get('http://localhost:4000/admin/users', config)
+            .get('https://nft-backend.unicus.one/admin/users', config)
             .then((result) => {
                 setData(result.data.totalUsers)
                 setLoading(false)
@@ -173,7 +290,12 @@ const Users = () => {
                     <button id='log'> Log Out </button>
                     <hr className='ruler' />
                     <div className='User'>
-                        <input className='input' placeholder='Search' />
+                        <input
+                            className='input'
+                            placeholder='Search'
+                            id='searchUser__Name'
+                            onKeyUp={searchUser}
+                        />
                         <br />
                         <table className='table'>
                             <thead>
@@ -188,7 +310,7 @@ const Users = () => {
                                     <td> Details</td>
                                 </tr>
                             </thead>
-                            <tbody className='tr'>
+                            <tbody className='tr' id='searchUser__Name__Body'>
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td>
@@ -215,22 +337,25 @@ const Users = () => {
                                         <td>
                                             <Button
                                                 variant='primary'
-                                                onClick={() =>
+                                                onClick={() => {
+                                                    setDetails(value)
                                                     setModalShow(true)
-                                                }
+                                                }}
                                             >
                                                 Details
                                             </Button>
-                                            <MyVerticallyCenteredModal
-                                                show={modalShow}
-                                                setShow={setModalShow}
-                                            />
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+                    <MyVerticallyCenteredModal
+                        show={modalShow}
+                        setShow={setModalShow}
+                        details={details}
+                        type={'User'}
+                    />
                 </div>
             )}
         </>
@@ -239,6 +364,7 @@ const Users = () => {
 
 const Products = () => {
     const [data, setData] = useState([])
+    const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
 
@@ -250,7 +376,7 @@ const Products = () => {
             },
         }
         axios
-            .get('http://localhost:4000/admin/nfts', config)
+            .get('https://nft-backend.unicus.one/admin/nfts', config)
             .then((result) => {
                 setData(result.data.totalNfts)
                 setLoading(false)
@@ -285,7 +411,12 @@ const Products = () => {
                     <button id='log'>Log Out</button>
                     <hr />
                     <div className='Products'>
-                        <input className='inputOne' placeholder='Search' />
+                        <input
+                            className='inputOne'
+                            placeholder='Search'
+                            id='searchProduct__Name'
+                            onKeyUp={searchProduct}
+                        />
                         <table className='tableTwo'>
                             <thead>
                                 <tr>
@@ -301,7 +432,10 @@ const Products = () => {
                                     <td> Details </td>
                                 </tr>
                             </thead>
-                            <tbody className='tr'>
+                            <tbody
+                                className='tr'
+                                id='searchProduct__Name__Body'
+                            >
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td> {value.name}</td>
@@ -321,22 +455,25 @@ const Products = () => {
                                         <td>
                                             <Button
                                                 variant='primary'
-                                                onClick={() =>
+                                                onClick={() => {
+                                                    setDetails(value)
                                                     setModalShow(true)
-                                                }
+                                                }}
                                             >
                                                 Details
                                             </Button>
-                                            <MyVerticallyCenteredModal
-                                                show={modalShow}
-                                                setShow={setModalShow}
-                                            />
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+                    <MyVerticallyCenteredModal
+                        show={modalShow}
+                        setShow={setModalShow}
+                        details={details}
+                        type={'NFT'}
+                    />
                 </div>
             )}
         </>
@@ -347,6 +484,7 @@ const Orders = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
+    const [details, setDetails] = useState({})
 
     useEffect(() => {
         setLoading(true)
@@ -356,7 +494,7 @@ const Orders = () => {
             },
         }
         axios
-            .get('http://localhost:4000/admin/bids', config)
+            .get('https://nft-backend.unicus.one/admin/bids', config)
             .then((result) => {
                 setData(result.data.totalBids)
                 setLoading(false)
@@ -390,7 +528,12 @@ const Orders = () => {
                     <button id='log'> Log Out</button>
                     <hr />
                     <div className='Orders'>
-                        <input className='inputTwo' placeholder='Search' />
+                        <input
+                            className='inputTwo'
+                            placeholder='Search'
+                            id='searchOrder__Name'
+                            onKeyUp={searchOrder}
+                        />
                         <table className='tableThree'>
                             <thead>
                                 <tr>
@@ -403,7 +546,7 @@ const Orders = () => {
                                     <td> Details </td>
                                 </tr>
                             </thead>
-                            <tbody className='tr'>
+                            <tbody className='tr' id='searchOrder__Name__Body'>
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td> {value.name}</td>
@@ -423,22 +566,25 @@ const Orders = () => {
                                         <td>
                                             <Button
                                                 variant='primary'
-                                                onClick={() =>
+                                                onClick={() => {
+                                                    setDetails(value)
                                                     setModalShow(true)
-                                                }
+                                                }}
                                             >
                                                 Details
                                             </Button>
-                                            <MyVerticallyCenteredModal
-                                                show={modalShow}
-                                                setShow={setModalShow}
-                                            />
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+                    <MyVerticallyCenteredModal
+                        show={modalShow}
+                        setShow={setModalShow}
+                        details={details}
+                        type={'User'}
+                    />
                 </div>
             )}
         </>
@@ -449,6 +595,7 @@ const Category = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
+    const [details, setDetails] = useState({})
 
     useEffect(() => {
         setLoading(true)
@@ -458,7 +605,7 @@ const Category = () => {
             },
         }
         axios
-            .get('http://localhost:4000/admin/nftStates', config)
+            .get('https://nft-backend.unicus.one/admin/nftStates', config)
             .then((result) => {
                 setData(result.data.totalNftStates)
                 setLoading(false)
@@ -488,11 +635,16 @@ const Category = () => {
                 </div>
             ) : (
                 <div className='sixth'>
-                    <h1 className='sixth-H'>NFT STATES</h1>
+                    <h1 className='sixth-H'>NFT STATUS</h1>
                     <button id='log'>Log Out</button>
                     <hr />
                     <div className='Category'>
-                        <input className='inputThree' placeholder='Search' />
+                        <input
+                            className='inputThree'
+                            placeholder='Search'
+                            id='searchCategory__Name'
+                            onKeyUp={searchCategory}
+                        />
                         <table className='tableFour'>
                             <thead>
                                 <tr>
@@ -505,7 +657,10 @@ const Category = () => {
                                     <td> Details </td>
                                 </tr>
                             </thead>
-                            <tbody className='tr'>
+                            <tbody
+                                className='tr'
+                                id='searchCategory__Name__Body'
+                            >
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td> {value.nftId}</td>
@@ -517,22 +672,25 @@ const Category = () => {
                                         <td>
                                             <Button
                                                 variant='primary'
-                                                onClick={() =>
+                                                onClick={() => {
+                                                    setDetails(value)
                                                     setModalShow(true)
-                                                }
+                                                }}
                                             >
                                                 Details
                                             </Button>
-                                            <MyVerticallyCenteredModal
-                                                show={modalShow}
-                                                setShow={setModalShow}
-                                            />
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+                    <MyVerticallyCenteredModal
+                        show={modalShow}
+                        setShow={setModalShow}
+                        details={details}
+                        type={'User'}
+                    />
                 </div>
             )}
         </>
@@ -566,7 +724,7 @@ const Header = () => {
             <NavLink to='/category' className='linkFive' activeClassName='one'>
                 {' '}
                 <FaChartPie className='imageOne' />
-                NFT States
+                NFT Status
             </NavLink>
         </div>
     )
