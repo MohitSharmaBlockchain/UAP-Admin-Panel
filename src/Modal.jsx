@@ -1,6 +1,7 @@
 import { Modal, Button } from 'react-bootstrap'
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import exportToCsv from './DownloadCSV'
 
 export default function MyVerticallyCenteredModal({
     show,
@@ -8,7 +9,7 @@ export default function MyVerticallyCenteredModal({
     details,
     type,
 }) {
-    console.log(Object.entries(details))
+    // console.log(Object.entries(details))
     const handleClose = () => setShow(false)
     return (
         <>
@@ -34,11 +35,11 @@ export default function MyVerticallyCenteredModal({
                         }}
                     >
                         {Object.entries(details).map((data) => {
-                            console.log(
-                                data[0],
-                                data[1],
-                                typeof data[1] !== 'object'
-                            )
+                            // console.log(
+                            //     data[0],
+                            //     data[1],
+                            //     typeof data[1] !== 'object'
+                            // )
                             return (
                                 <>
                                     {data[0] !== 'password' &&
@@ -185,7 +186,12 @@ export default function MyVerticallyCenteredModal({
                     <Button variant='secondary' onClick={() => handleClose()}>
                         Close
                     </Button>
-                    <Button variant='primary'>Save</Button>
+                    <Button
+                        variant='primary'
+                        onClick={(e) => exportToCsv(e, Object.entries(details))}
+                    >
+                        Download CSV
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </>
