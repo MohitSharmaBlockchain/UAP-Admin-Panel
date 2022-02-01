@@ -13,33 +13,6 @@ const downloadFile = ({ data, fileName, fileType }) => {
     a.remove()
 }
 
-const usersNew = [
-    {
-        id: 1,
-        name: 'Caitlyn',
-        surname: 'Kerluke',
-        age: 24,
-    },
-    {
-        id: 2,
-        name: 'Rowan ',
-        surname: 'Nikolaus',
-        age: 45,
-    },
-    {
-        id: 3,
-        name: 'Kassandra',
-        surname: 'Haley',
-        age: 32,
-    },
-    {
-        id: 4,
-        name: 'Rusty',
-        surname: 'Arne',
-        age: 58,
-    },
-]
-
 const exportToCsv = (e, data__from__web) => {
     e.preventDefault()
 

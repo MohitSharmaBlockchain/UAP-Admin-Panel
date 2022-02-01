@@ -15,6 +15,7 @@ import { Spinner, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import MyVerticallyCenteredModal from './Modal'
+import exportToCsv from './DownloadAllCSV'
 // import Loader from './Loader'
 // import Fausers from './FaUsers.svg';
 // import Facoins from './FaCoins.svg';
@@ -290,12 +291,31 @@ const Users = () => {
                     <button id='log'> Log Out </button>
                     <hr className='ruler' />
                     <div className='User'>
-                        <input
-                            className='input'
-                            placeholder='Search'
-                            id='searchUser__Name'
-                            onKeyUp={searchUser}
-                        />
+                        <div
+                            className='top'
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                columnGap: '4px',
+                                width: '100%',
+                            }}
+                        >
+                            <input
+                                className='input'
+                                placeholder='Search'
+                                id='searchUser__Name'
+                                onKeyUp={searchUser}
+                                style={{
+                                    width: '100%',
+                                }}
+                            />
+                            <Button
+                                variant='primary'
+                                onClick={(e) => exportToCsv(e, data)}
+                            >
+                                Download
+                            </Button>
+                        </div>
                         <br />
                         <table className='table'>
                             <thead>
@@ -411,12 +431,31 @@ const Products = () => {
                     <button id='log'>Log Out</button>
                     <hr />
                     <div className='Products'>
-                        <input
-                            className='inputOne'
-                            placeholder='Search'
-                            id='searchProduct__Name'
-                            onKeyUp={searchProduct}
-                        />
+                        <div
+                            className='top'
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                columnGap: '4px',
+                                width: '100%',
+                            }}
+                        >
+                            <input
+                                className='inputOne'
+                                placeholder='Search'
+                                id='searchProduct__Name'
+                                onKeyUp={searchProduct}
+                                style={{
+                                    width: '100%',
+                                }}
+                            />
+                            <Button
+                                variant='primary'
+                                onClick={(e) => exportToCsv(e, data)}
+                            >
+                                Download
+                            </Button>
+                        </div>
                         <table className='tableTwo'>
                             <thead>
                                 <tr>
@@ -528,12 +567,31 @@ const Orders = () => {
                     <button id='log'> Log Out</button>
                     <hr />
                     <div className='Orders'>
-                        <input
-                            className='inputTwo'
-                            placeholder='Search'
-                            id='searchOrder__Name'
-                            onKeyUp={searchOrder}
-                        />
+                        <div
+                            className='top'
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                columnGap: '4px',
+                                width: '100%',
+                            }}
+                        >
+                            <input
+                                className='inputTwo'
+                                placeholder='Search'
+                                id='searchOrder__Name'
+                                onKeyUp={searchOrder}
+                                style={{
+                                    width: '100%',
+                                }}
+                            />
+                            <Button
+                                variant='primary'
+                                onClick={(e) => exportToCsv(e, data)}
+                            >
+                                Download
+                            </Button>
+                        </div>
                         <table className='tableThree'>
                             <thead>
                                 <tr>
@@ -639,12 +697,31 @@ const Category = () => {
                     <button id='log'>Log Out</button>
                     <hr />
                     <div className='Category'>
-                        <input
-                            className='inputThree'
-                            placeholder='Search'
-                            id='searchCategory__Name'
-                            onKeyUp={searchCategory}
-                        />
+                        <div
+                            className='top'
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                columnGap: '4px',
+                                width: '100%',
+                            }}
+                        >
+                            <input
+                                className='inputThree'
+                                placeholder='Search'
+                                id='searchCategory__Name'
+                                onKeyUp={searchCategory}
+                                style={{
+                                    width: '100%',
+                                }}
+                            />
+                            <Button
+                                variant='primary'
+                                onClick={(e) => exportToCsv(e, data)}
+                            >
+                                Download
+                            </Button>
+                        </div>
                         <table className='tableFour'>
                             <thead>
                                 <tr>
