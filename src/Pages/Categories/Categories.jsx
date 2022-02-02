@@ -78,9 +78,11 @@ const Category = () => {
                     />
                 </div>
             ) : (
-                <div className='sixth'>
-                    <h1 className='sixth-H'>NFT STATUS</h1>
-                    <button id='log'>Log Out</button>
+                <div className='third'>
+                    <div className='top__box__container'>
+                        <h1 className='third-H'> NFT STATUS </h1>
+                        <button className='log'> Log Out </button>
+                    </div>
                     <hr />
                     <div
                         className='top'
@@ -88,7 +90,7 @@ const Category = () => {
                             display: 'flex',
                             alignItems: 'center',
                             columnGap: '4px',
-                            margin: '0 10px',
+                            padding: '0 5px',
                         }}
                     >
                         <input

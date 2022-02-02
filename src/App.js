@@ -17,27 +17,22 @@ const Header = () => {
         <div className='first'>
             <h1 className=' first-H'> UNICUS </h1>
             <hr />
-            <NavLink to='/dashboard' className='linkOne' activeClassName='one'>
-                {' '}
+            <NavLink to='/dashboard' className='link' activeClassName='one'>
                 <MdDashboard className='imageOne' />
                 Dashboard
             </NavLink>
-            <NavLink to='/users' className='linkTwo' activeClassName='one'>
-                {' '}
+            <NavLink to='/users' className='link' activeClassName='one'>
                 <FaUsers className='imageOne' />
                 Users
             </NavLink>
-            <NavLink to='/products' className='linkThree' activeClassName='one'>
-                {' '}
-                <FaShekel className='imageOne' /> NFTS{' '}
+            <NavLink to='/products' className='link' activeClassName='one'>
+                <FaShekel className='imageOne' /> NFTS
             </NavLink>
-            {/* <NavLink to='/orders' className='linkFour' activeClassName='one'>
-                {' '}
+            {/* <NavLink to='/orders' className='link' activeClassName='one'>
                 <FaCoins className='imageOne' />
-                NFT Bids{' '}
+                NFT Bids
             </NavLink> */}
-            <NavLink to='/category' className='linkFive' activeClassName='one'>
-                {' '}
+            <NavLink to='/category' className='link' activeClassName='one'>
                 <FaChartPie className='imageOne' />
                 NFT Status
             </NavLink>

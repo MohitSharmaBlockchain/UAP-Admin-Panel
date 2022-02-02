@@ -78,9 +78,11 @@ const Orders = () => {
                     />
                 </div>
             ) : (
-                <div className='fifth'>
-                    <h1 className=' fifth-H '> NFT BIDS </h1>
-                    <button id='log'> Log Out</button>
+                <div className='third'>
+                    <div className='top__box__container'>
+                        <h1 className='third-H'> NFT BIDS </h1>
+                        <button className='log'> Log Out </button>
+                    </div>
                     <hr />
                     <div
                         className='top'
@@ -88,7 +90,7 @@ const Orders = () => {
                             display: 'flex',
                             alignItems: 'center',
                             columnGap: '4px',
-                            margin: '0 10px',
+                            padding: '0 5px',
                         }}
                     >
                         <input

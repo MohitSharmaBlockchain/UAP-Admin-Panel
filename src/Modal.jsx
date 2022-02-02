@@ -1,5 +1,5 @@
 import { Modal, Button } from 'react-bootstrap'
-import React, { useState } from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import exportToCsv from './DownloadCSV'
 
@@ -9,7 +9,6 @@ export default function MyVerticallyCenteredModal({
     details,
     type,
 }) {
-    // console.log(Object.entries(details))
     const handleClose = () => setShow(false)
     return (
         <>
@@ -18,6 +17,7 @@ export default function MyVerticallyCenteredModal({
                 onHide={handleClose}
                 backdrop='static'
                 keyboard={false}
+                className='modal__open__details'
             >
                 <Modal.Header closeButton className='header__container__modal'>
                     <Modal.Title>{type} Details</Modal.Title>
@@ -35,11 +35,6 @@ export default function MyVerticallyCenteredModal({
                         }}
                     >
                         {Object.entries(details).map((data) => {
-                            // console.log(
-                            //     data[0],
-                            //     data[1],
-                            //     typeof data[1] !== 'object'
-                            // )
                             return (
                                 <>
                                     {data[0] !== 'password' &&

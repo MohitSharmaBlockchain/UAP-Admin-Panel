@@ -79,8 +79,10 @@ const Users = () => {
                 </div>
             ) : (
                 <div className='third'>
-                    <h1 className='third-H'> USERS </h1>
-                    <button id='log'> Log Out </button>
+                    <div className='top__box__container'>
+                        <h1 className='third-H'> USERS </h1>
+                        <button className='log'> Log Out </button>
+                    </div>
                     <hr className='ruler' />
                     <div
                         className='top'
@@ -88,8 +90,7 @@ const Users = () => {
                             display: 'flex',
                             alignItems: 'center',
                             columnGap: '4px',
-                            margin: '0 10px',
-                            // width: '100%',
+                            padding: '0 5px',
                         }}
                     >
                         <input
@@ -143,9 +144,9 @@ const Users = () => {
                                         <td> {value.balance} </td>
                                         <td> {value.walletBalance} </td>
                                         <td>
-                                            <button id='logTwo'>
+                                            <Button variant='secondary'>
                                                 Deactivate
-                                            </button>
+                                            </Button>
                                         </td>
                                         <td>
                                             <Button

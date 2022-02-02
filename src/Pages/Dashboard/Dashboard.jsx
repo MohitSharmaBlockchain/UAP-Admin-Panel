@@ -52,9 +52,11 @@ const Dashboard = () => {
                     />
                 </div>
             ) : (
-                <div className='second'>
-                    <h1 className='second-H'> DASHBOARD </h1>
-                    <button id='log'> Log Out </button>
+                <div className='third'>
+                    <div className='top__box__container'>
+                        <h1 className='third-H'> DASHBOARD </h1>
+                        <button className='log'> Log Out </button>
+                    </div>
                     <hr />
                     <div className='card'>
                         <div className='cardOne'>
