@@ -138,6 +138,10 @@
     background-color: black;
 }
 
+a:hover {
+    color: white !important;
+}
+
 .linkTwo {
     text-decoration: none !important;
     height: 60px;

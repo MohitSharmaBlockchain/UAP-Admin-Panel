@@ -693,7 +693,7 @@ const Category = () => {
                 </div>
             ) : (
                 <div className='sixth'>
-                    <h1 className='sixth-H'>NFT STATUS</h1>
+                    <h1 className='sixth-H'>NFT Life Cycle</h1>
                     <button id='log'>Log Out</button>
                     <hr />
                     <div className='Category'>
@@ -801,7 +801,7 @@ const Header = () => {
             <NavLink to='/category' className='linkFive' activeClassName='one'>
                 {' '}
                 <FaChartPie className='imageOne' />
-                NFT Status
+                NFT Life Cycle
             </NavLink>
         </div>
     )
