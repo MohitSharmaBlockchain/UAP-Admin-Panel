@@ -8,6 +8,15 @@
     margin: 0;
 }
 
+body {
+    background: linear-gradient(
+        121.51deg,
+        #0a1830 -19.56%,
+        #04122c 107.27%
+    ) !important;
+    color: #fff !important;
+}
+
 .Image {
     font-size: 60px;
     margin: 50px;
@@ -92,7 +101,8 @@
     padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    background: rgb(240, 240, 240);
+    background: transparent !important;
+    /* color: #282c34 !important; */
     align-items: center;
     justify-content: center;
     height: 80vh;
@@ -104,7 +114,9 @@
     display: flex;
     border: none;
     border-radius: 4px;
-    background-color: white;
+    border: 2px solid rgba(89, 105, 133, 0.5);
+    border-radius: 10px;
+    background-color: rgba(27, 44, 71, 0.5);
     margin: 30px;
     width: 253px;
     align-items: center;
@@ -217,49 +229,62 @@ a:hover {
     right: 58px;
 }
 
-.User {
+.User,
+.Products,
+.Orders,
+.Category {
     display: flex;
     flex-direction: column;
     /* margin: 50px; */
-    background-color: rgba(203, 203, 210, 0.15);
-    height: 85vh;
+    /* background-color: rgba(36, 37, 39, 0.5); */
+    height: 75vh;
+    width: 83vw;
     margin-top: 0;
     overflow: scroll;
     /* overflow-x: hidden; */
 }
 
-.input {
-    right: 150px;
+input {
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 2px;
-    /* align-self: flex-end; */
+    background: rgba(196, 196, 196, 0.4);
+    color: #fff;
+    border: none;
+    margin-left: 4px;
+    width: 90%;
+    outline: none;
 }
 
-.table {
-    border: 2px solid whitesmoke;
+input::placeholder {
+    color: #fff;
+}
+
+table {
+    border: 2px solid rgba(89, 105, 133, 0.5) !important;
+    /* background: transparent !important; */
+    color: #fff !important;
+    background: rgba(27, 44, 71, 0.5) !important;
     white-space: nowrap;
     height: 80vh;
-    /* margin-left: 35px; */
-    /* background-color: whitesmoke;
-  border-collapse: collapse;
-  margin: 50px;
-  padding: 50px; */
-    /* font-size: 0.9em; */
-    /* min-width: 400px; */
-    /* align-items: center; */
-    /* margin-left: auto;
-  margin-right: auto; */
+    margin-left: 5px;
 }
 
-.table thead tr {
+thead tr {
     text-align: left;
     font-weight: bold;
 }
 
-.table th,
-.table td {
+table th,
+table td {
     padding: 12px 15px;
+}
+
+tbody td {
+    border: 2px solid rgba(89, 105, 133, 0.5);
+}
+
+thead td {
+    border: 2px solid rgba(89, 105, 133, 0.5);
 }
 
 #logTwo {
@@ -280,15 +305,9 @@ a:hover {
     cursor: pointer;
 }
 
-.table tbody tr {
-    border-bottom: 2px solid #ffffff86;
+tbody tr {
+    border-bottom: 2px solid rgba(89, 105, 133, 0.5);
 }
-
-.tr:nth-child(even) {
-    background-color: white;
-}
-
-/* //Products */
 
 .fourth {
     padding-top: 10px;
@@ -311,51 +330,11 @@ a:hover {
     right: 58px;
 }
 
-.Products {
-    display: flex;
-    flex-direction: column;
-    /* margin: 50px; */
-    height: 84vh;
-    background-color: whitesmoke;
-    overflow: scroll;
-}
-
 .inputOne {
     right: 150px;
     padding: 10px;
-    /* border: none; */
     border-radius: 4px;
-    /* align-self: flex-end; */
 }
-
-.tableTwo {
-    white-space: nowrap;
-    /* background-color: whitesmoke;
-  border-collapse: collapse;
-  margin: 50px;
-  padding: 50px; */
-    /* font-size: 0.9em; */
-    /* min-width: 400px; */
-    /* align-items: center; */
-    /* margin-left: auto;
-  margin-right: auto; */
-}
-
-.tableTwo thead tr {
-    text-align: left;
-    font-weight: bold;
-}
-
-.tableTwo th,
-.tableTwo td {
-    padding: 12px 15px;
-}
-
-.tableTwo tbody tr {
-    border-bottom: 2px solid #ffffff86;
-}
-
-/* //Orders */
 
 .fifth {
     padding-top: 10px;
@@ -363,7 +342,6 @@ a:hover {
 }
 
 .fifth-H {
-    /* padding-top: 10px; */
     padding-bottom: 12px !important;
 }
 
@@ -378,51 +356,11 @@ a:hover {
     right: 58px;
 }
 
-.Orders {
-    display: flex;
-    flex-direction: column;
-    /* margin: 50px; */
-    white-space: nowrap;
-    background-color: whitesmoke;
-    height: 84vh;
-    overflow: scroll;
-}
-
 .inputTwo {
     right: 150px;
     padding: 10px;
-    /* border: none; */
     border-radius: 4px;
-    /* align-self: flex-end; */
 }
-
-.table {
-    /* background-color: whitesmoke;
-  border-collapse: collapse;
-  margin: 50px;
-  padding: 50px; */
-    /* font-size: 0.9em; */
-    /* min-width: 400px; */
-    /* align-items: center; */
-    /* margin-left: auto;
-  margin-right: auto; */
-}
-
-.tableThree thead tr {
-    text-align: left;
-    font-weight: bold;
-}
-
-.tableThree th,
-.tableThree td {
-    padding: 12px 15px;
-}
-
-.tableThree tbody tr {
-    border-bottom: 2px solid #ffffff86;
-}
-
-/* //Category */
 
 .sixth {
     padding-top: 10px;
@@ -430,7 +368,6 @@ a:hover {
 }
 
 .sixth-H {
-    /* padding-top: 10px; */
     padding-bottom: 12px !important;
 }
 
@@ -445,47 +382,10 @@ a:hover {
     right: 58px;
 }
 
-.Category {
-    display: flex;
-    flex-direction: column;
-    /* margin: 50px; */
-    height: 84vh;
-    background-color: whitesmoke;
-    overflow: scroll;
-}
-
 .inputThree {
     right: 150px;
     padding: 10px;
-    /* border: none; */
     border-radius: 4px;
-    /* align-self: flex-end; */
-}
-
-.table {
-    /* background-color: whitesmoke;
-  border-collapse: collapse;
-  margin: 50px;
-  padding: 50px; */
-    /* font-size: 0.9em; */
-    /* min-width: 400px; */
-    /* align-items: center; */
-    /* margin-left: auto;
-  margin-right: auto; */
-}
-
-.tableFour thead tr {
-    text-align: left;
-    font-weight: bold;
-}
-
-.tableFour th,
-.tableFour td {
-    padding: 12px 15px;
-}
-
-.tableFour tbody tr {
-    border-bottom: 2px solid #ffffff86;
 }
 
 .App-logo {

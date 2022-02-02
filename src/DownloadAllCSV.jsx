@@ -26,7 +26,19 @@ const exportToCsv = (e, data__from__web) => {
             key !== 'wallets' &&
             key !== '__v' &&
             key !== 'tags' &&
+            key !== 'verificationToken' &&
+            key !== 'isVerified' &&
+            key !== 'balances' &&
+            key !== 'walletBalance' &&
+            key !== 'active' &&
+            key !== 'profileUrl' &&
+            key !== 'isApproved' &&
+            key !== 'uploadedBy' &&
+            key !== 'mintedBy' &&
+            key !== 'owner' &&
+            key !== 'nftId' &&
             key !== 'jsonHash' &&
+            key !== '_id' &&
             key !== 'cloudinaryUrl'
         ) {
             head += key.toUpperCase() + ','
@@ -47,6 +59,27 @@ const exportToCsv = (e, data__from__web) => {
             }
             if (search) {
                 let text = user[arr[i]]
+
+                if (arr[i] === 'userType') {
+                    if (text === 1) {
+                        text = 'Email'
+                    } else if (text === 2) {
+                        text = 'Wallet'
+                    } else {
+                        text = 'Email and Wallet'
+                    }
+                }
+
+                if (arr[i] === 'nftStatus') {
+                    if (text === 1) {
+                        text = 'Artist Portfolio'
+                    } else if (text === 2) {
+                        text = 'Sale'
+                    } else {
+                        text = 'Auction'
+                    }
+                }
+
                 let word__data = ''
                 if (typeof text === 'string') {
                     for (let i = 0; i < text.length; i++) {
