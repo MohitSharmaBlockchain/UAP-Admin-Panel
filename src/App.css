@@ -418,3 +418,8 @@ tbody tr {
         transform: rotate(360deg);
     }
 }
+
+.containerDetails,
+.header__container__modal {
+    color: black !important;
+}

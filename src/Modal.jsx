@@ -19,7 +19,7 @@ export default function MyVerticallyCenteredModal({
                 backdrop='static'
                 keyboard={false}
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className='header__container__modal'>
                     <Modal.Title>{type} Details</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
