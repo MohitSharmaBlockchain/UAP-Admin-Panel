@@ -35,7 +35,7 @@ const searchProduct = () => {
     }
 }
 
-const Products = () => {
+const Products = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(false)
@@ -79,9 +79,16 @@ const Products = () => {
                     />
                 </div>
             ) : (
-                <div className='fourth'>
-                    <h1 className='fourth-H'>NFT'S</h1>
-                    <button id='log'>Log Out</button>
+                <div className='third'>
+                    <div className='top__box__container'>
+                        {/* <h1 className='third-H'> NFT's </h1> */}
+                        <Button
+                            variant='primary'
+                            onClick={(e) => logoutAdminUser(e)}
+                        >
+                            Logout
+                        </Button>{' '}
+                    </div>
                     <hr />
                     <div
                         className='top'
@@ -89,7 +96,7 @@ const Products = () => {
                             display: 'flex',
                             alignItems: 'center',
                             columnGap: '4px',
-                            margin: '0 10px',
+                            padding: '0 5px',
                         }}
                     >
                         <input

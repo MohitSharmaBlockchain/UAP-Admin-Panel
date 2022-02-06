@@ -35,7 +35,7 @@ const searchCategory = () => {
     }
 }
 
-const Category = () => {
+const Category = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
@@ -78,9 +78,16 @@ const Category = () => {
                     />
                 </div>
             ) : (
-                <div className='sixth'>
-                    <h1 className='sixth-H'>NFT STATUS</h1>
-                    <button id='log'>Log Out</button>
+                <div className='third'>
+                    <div className='top__box__container'>
+                        {/* <h1 className='third-H'> NFT STATUS </h1> */}
+                        <Button
+                            variant='primary'
+                            onClick={(e) => logoutAdminUser(e)}
+                        >
+                            Logout
+                        </Button>
+                    </div>
                     <hr />
                     <div
                         className='top'
@@ -88,7 +95,7 @@ const Category = () => {
                             display: 'flex',
                             alignItems: 'center',
                             columnGap: '4px',
-                            margin: '0 10px',
+                            padding: '0 5px',
                         }}
                     >
                         <input
