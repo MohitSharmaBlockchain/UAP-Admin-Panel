@@ -6,11 +6,11 @@ import { ReactComponent as FaCoins } from '../../FaCoins.svg'
 import { ReactComponent as FaChartPie } from '../../FaChartPie.svg'
 import { ReactComponent as FaCalendarCheck } from '../../FaCalendarCheck.svg'
 import { ReactComponent as FaCalendarAlt } from '../../FaCalendarAlt.svg'
-import { Spinner } from 'react-bootstrap'
+import { Spinner, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 
-const Dashboard = () => {
+const Dashboard = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -54,8 +54,13 @@ const Dashboard = () => {
             ) : (
                 <div className='third'>
                     <div className='top__box__container'>
-                        <h1 className='third-H'> DASHBOARD </h1>
-                        <button className='log'> Log Out </button>
+                        {/* <h1 className='third-H'> DASHBOARD </h1> */}
+                        <Button
+                            variant='primary'
+                            onClick={(e) => logoutAdminUser(e)}
+                        >
+                            Logout
+                        </Button>{' '}
                     </div>
                     <hr />
                     <div className='card'>

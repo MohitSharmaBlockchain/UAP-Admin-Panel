@@ -35,7 +35,7 @@ const searchUser = () => {
     }
 }
 
-const Users = () => {
+const Users = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false)
@@ -80,8 +80,13 @@ const Users = () => {
             ) : (
                 <div className='third'>
                     <div className='top__box__container'>
-                        <h1 className='third-H'> USERS </h1>
-                        <button className='log'> Log Out </button>
+                        {/* <h1 className='third-H'> USERS </h1> */}
+                        <Button
+                            variant='primary'
+                            onClick={(e) => logoutAdminUser(e)}
+                        >
+                            Logout
+                        </Button>
                     </div>
                     <hr className='ruler' />
                     <div
