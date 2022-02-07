@@ -1,3 +1,5 @@
+import { parseOriginalDate } from './data'
+
 const downloadFile = ({ data, fileName, fileType }) => {
     const blob = new Blob([data], { type: fileType })
 
@@ -36,6 +38,7 @@ const exportToCsv = (e, data__from__web) => {
             key !== 'uploadedBy' &&
             key !== 'mintedBy' &&
             key !== 'owner' &&
+            key !== 'tokenId' &&
             key !== 'nftId' &&
             key !== 'jsonHash' &&
             key !== '_id' &&
@@ -78,6 +81,24 @@ const exportToCsv = (e, data__from__web) => {
                     } else {
                         text = 'Auction'
                     }
+                }
+
+                if (arr[i] === 'chain') {
+                    if (text === 1) {
+                        text = 'Polygon'
+                    } else if (text === 56) {
+                        text = 'Binance'
+                    } else if (text === 137) {
+                        text = 'Ethereum'
+                    }
+                }
+
+                if (
+                    arr[i] === 'date' ||
+                    arr[i] === 'createdAt' ||
+                    arr[i] === 'updatedAt'
+                ) {
+                    text = parseOriginalDate(user[arr[i]])
                 }
 
                 let word__data = ''

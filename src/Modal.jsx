@@ -2,6 +2,7 @@ import { Modal, Button } from 'react-bootstrap'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import exportToCsv from './DownloadCSV'
+import { parseOriginalDate } from './data'
 
 export default function MyVerticallyCenteredModal({
     show,
@@ -39,7 +40,12 @@ export default function MyVerticallyCenteredModal({
                                 <>
                                     {data[0] !== 'password' &&
                                         data[0] !== 'backgroundUrl' &&
+                                        data[0] !== 'verificationToken' &&
                                         data[0] !== '__v' &&
+                                        data[0] !== 'balances' &&
+                                        data[0] !== 'walletBalance' &&
+                                        data[0] !== 'tokenId' &&
+                                        data[0] !== 'isVerified' &&
                                         data[1] !== '' &&
                                         data[0] !== 'jsonHash' &&
                                         data[0] !== 'cloudinaryUrl' && (
@@ -162,13 +168,7 @@ export default function MyVerticallyCenteredModal({
                                                         </ol>
                                                     )
                                                 ) : (
-                                                    <p style={{ flex: 1 }}>
-                                                        {data[1] === true
-                                                            ? 'YES'
-                                                            : data[1] === false
-                                                            ? 'NO'
-                                                            : data[1]}
-                                                    </p>
+                                                    <DataValue data={data} />
                                                 )}
                                             </div>
                                         )}
@@ -190,5 +190,49 @@ export default function MyVerticallyCenteredModal({
                 </Modal.Footer>
             </Modal>
         </>
+    )
+}
+
+const DataValue = ({ data }) => {
+    let value = data[1]
+    if (
+        data[0] === 'createdAt' ||
+        data[0] === 'updatedAt' ||
+        data[0] === 'date'
+    ) {
+        value = parseOriginalDate(data[1])
+    } else if (data[0] === 'nftStatus') {
+        if (data[1] === 1) {
+            value = 'Artist Portfolio'
+        } else if (data[1] === 2) {
+            value = 'Sale'
+        } else if (data[1 === 3]) {
+            value = 'Auction'
+        }
+    } else if (data[0] === 'userType') {
+        if (data[1] === 1) {
+            value = 'Email'
+        } else if (data[1] === 2) {
+            value = 'Wallet'
+        } else if (data[1] === 3) {
+            value = 'Email and Wallet'
+        }
+    } else if (data[0] === 'chain') {
+        if (data[1] === 1) {
+            value = 'Polygon'
+        } else if (data[1] === 56) {
+            value = 'Binance'
+        } else if (data[1] === 137) {
+            value = 'Ethereum'
+        }
+    }
+    return (
+        <p
+            style={{
+                flex: 1,
+            }}
+        >
+            {data[1] === true ? 'YES' : data[1] === false ? 'NO' : value}
+        </p>
     )
 }

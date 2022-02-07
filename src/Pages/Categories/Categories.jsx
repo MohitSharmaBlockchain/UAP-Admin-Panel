@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import MyVerticallyCenteredModal from '../../Modal'
 import exportToCsv from '../../DownloadAllCSV'
+import { parseOriginalDate } from '../../data'
 
 const searchCategory = () => {
     let userData = document
@@ -139,7 +140,10 @@ const Category = ({ logoutAdminUser }) => {
                                         <td> {value.price} </td>
                                         <td> {value.from} </td>
                                         <td> {value.to} </td>
-                                        <td> {value.date} </td>
+                                        <td>
+                                            {' '}
+                                            {parseOriginalDate(value.date)}{' '}
+                                        </td>
                                         <td>
                                             <Button
                                                 variant='primary'

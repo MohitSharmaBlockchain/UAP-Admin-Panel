@@ -9,6 +9,7 @@ import { ReactComponent as FaCalendarAlt } from '../../FaCalendarAlt.svg'
 import { Spinner, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Dashboard = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
@@ -64,57 +65,77 @@ const Dashboard = ({ logoutAdminUser }) => {
                     </div>
                     <hr />
                     <div className='card'>
-                        <div className='cardOne'>
-                            <FaUsers className='Image' />
-                            <div>
-                                <p className='cardOne-P'>User's</p>
-                                <h4 className='cardOne-H'>{data.totalUsers}</h4>
+                        <Link to='/users'>
+                            <div className='cardOne'>
+                                <FaUsers className='Image' />
+                                <div>
+                                    <p className='cardOne-P'>User's</p>
+                                    <h4 className='cardOne-H'>
+                                        {data.totalUsers}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cardOne'>
-                            <FaCoins className='ImageTwo' />
-                            <div>
-                                <p className='cardOne-P'>NFT's</p>
-                                <h4 className='cardOne-H'>{data.totalNFTS}</h4>
+                        <Link to='/products'>
+                            <div className='cardOne'>
+                                <FaCoins className='ImageTwo' />
+                                <div>
+                                    <p className='cardOne-P'>NFT's</p>
+                                    <h4 className='cardOne-H'>
+                                        {data.totalNFTS}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cardOne'>
-                            <FaChartPie className='ImageThree' />
-                            <div>
-                                <p className='cardOne-P'>Auctions</p>
-                                <h4 className='CardOne-H'>
-                                    {data.totalAuction}
-                                </h4>
+                        <Link to='/dashboard'>
+                            <div className='cardOne'>
+                                <FaChartPie className='ImageThree' />
+                                <div>
+                                    <p className='cardOne-P'>Auctions</p>
+                                    <h4 className='CardOne-H'>
+                                        {data.totalAuction}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cardOne'>
-                            <FaHandHoldingUSD className='ImageFour' />
-                            <div>
-                                <p className='cardOne-P'>Sales</p>
-                                <h4 className='CardOne-H'>{data.totalSale}</h4>
+                        <Link to='/category'>
+                            <div className='cardOne'>
+                                <FaHandHoldingUSD className='ImageFour' />
+                                <div>
+                                    <p className='cardOne-P'>Sales</p>
+                                    <h4 className='CardOne-H'>
+                                        {data.totalSale}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cardOne'>
-                            <FaCalendarAlt className='ImageFive' />
-                            <div>
-                                <p className='cardOne-P'>Total Bids</p>
-                                <h4 className='CardOne-H'>{data.totalBids}</h4>
+                        <Link to='/dashboard'>
+                            <div className='cardOne'>
+                                <FaCalendarAlt className='ImageFive' />
+                                <div>
+                                    <p className='cardOne-P'>Total Bids</p>
+                                    <h4 className='CardOne-H'>
+                                        {data.totalBids}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cardOne'>
-                            <FaCalendarCheck className='ImageSix' />
-                            <div>
-                                <p className='cardOne-P'>Sales Ended</p>
-                                <h4 className='CardOne-H'>
-                                    {data.totalSalesEnded}
-                                </h4>
+                        <Link to='/dashboard'>
+                            <div className='cardOne'>
+                                <FaCalendarCheck className='ImageSix' />
+                                <div>
+                                    <p className='cardOne-P'>Sales Ended</p>
+                                    <h4 className='CardOne-H'>
+                                        {data.totalSalesEnded}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <hr />
                 </div>
