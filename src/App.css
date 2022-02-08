@@ -109,6 +109,16 @@ hr {
     user-select: none;
 }
 
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 .cardOne {
     display: flex;
     border: none;
@@ -167,7 +177,7 @@ hr {
     padding-top: 10px;
     padding-bottom: 12px !important;
     user-select: none;
-    height: 78px;
+    height: 76px;
 }
 
 .User,

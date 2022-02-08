@@ -118,7 +118,7 @@ const Header = () => {
 }
 
 const AppRouter = () => {
-    const [isLogin, setLogin] = useState(false)
+    const [isLogin, setLogin] = useState(true)
     const [err, setErr] = useState('')
 
     useEffect(() => {

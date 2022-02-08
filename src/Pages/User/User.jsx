@@ -124,8 +124,8 @@ const Users = ({ logoutAdminUser }) => {
                                     <td> Name </td>
                                     <td> Email </td>
                                     <td> NFT Count </td>
-                                    <td> Balance </td>
-                                    <td> Status </td>
+                                    {/* <td> Balance </td> */}
+                                    {/* <td> Status </td> */}
                                     <td> Details</td>
                                 </tr>
                             </thead>
@@ -146,13 +146,14 @@ const Users = ({ logoutAdminUser }) => {
                                         <td> {value._id}</td>
                                         <td> {value.username} </td>
                                         <td> {value.email} </td>
-                                        <td> {value.balance} </td>
-                                        <td> {value.walletBalance} </td>
+                                        <td> </td>
+                                        {/* <td> {value.balance} </td> */}
+                                        {/* <td> {value.walletBalance} </td>
                                         <td>
                                             <Button variant='secondary'>
                                                 Deactivate
                                             </Button>
-                                        </td>
+                                        </td> */}
                                         <td>
                                             <Button
                                                 variant='primary'

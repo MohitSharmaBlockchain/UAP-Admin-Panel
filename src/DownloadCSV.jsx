@@ -1,3 +1,5 @@
+import { parseOriginalDate } from './data'
+
 const downloadFile = ({ data, fileName, fileType }) => {
     const blob = new Blob([data], { type: fileType })
 
@@ -25,8 +27,12 @@ const exportToCsv = (e, data__from__web) => {
             element[0] !== 'password' &&
             element[0] !== 'backgroundUrl' &&
             element[0] !== '__v' &&
+            element[0] !== 'isVerified' &&
+            element[0] !== 'balances' &&
+            element[0] !== 'walletBalance' &&
             element[0] !== 'tags' &&
             element[0] !== 'jsonHash' &&
+            element[0] !== 'tokenId' &&
             element[0] !== 'cloudinaryUrl'
         ) {
             head += element[0].toUpperCase() + ','
@@ -71,18 +77,70 @@ const exportToCsv = (e, data__from__web) => {
             element[0] !== 'password' &&
             element[0] !== 'backgroundUrl' &&
             element[0] !== '__v' &&
+            element[0] !== 'isVerified' &&
+            element[0] !== 'balances' &&
+            element[0] !== 'walletBalance' &&
             element[0] !== 'tags' &&
             element[0] !== 'jsonHash' &&
+            element[0] !== 'tokenId' &&
             element[0] !== 'cloudinaryUrl'
         ) {
-            body +=
-                (element[1] === true
-                    ? 'YES'
-                    : element[1] === false
-                    ? 'NO'
-                    : element[1] === ''
-                    ? '--'
-                    : element[1]) + ','
+            let text = element[1]
+
+            if (element[0] === 'userType') {
+                if (text === 1) {
+                    text = 'Email'
+                } else if (text === 2) {
+                    text = 'Wallet'
+                } else {
+                    text = 'Email and Wallet'
+                }
+            } else if (element[0] === 'nftStatus') {
+                if (text === 1) {
+                    text = 'Artist Portfolio'
+                } else if (text === 2) {
+                    text = 'Sale'
+                } else {
+                    text = 'Auction'
+                }
+            } else if (element[0] === 'chain') {
+                if (text === 1) {
+                    text = 'Polygon'
+                } else if (text === 56) {
+                    text = 'Binance'
+                } else if (text === 137) {
+                    text = 'Ethereum'
+                }
+            } else if (
+                element[0] === 'date' ||
+                element[0] === 'createdAt' ||
+                element[0] === 'updatedAt'
+            ) {
+                text = parseOriginalDate(element[1])
+            } else if (text === true) {
+                text = 'YES'
+            } else if (text === false) {
+                text = 'NO'
+            }
+
+            let word__data = ''
+            if (typeof text === 'string') {
+                for (let i = 0; i < text.length; i++) {
+                    if (text[i] === ',' || text[i] === '\n') continue
+                    word__data += text[i]
+                }
+                body += word__data + ','
+            } else {
+                body += text + ','
+            }
+            // body +=
+            //     (element[1] === true
+            //         ? 'YES'
+            //         : element[1] === false
+            //         ? 'NO'
+            //         : element[1] === ''
+            //         ? '--'
+            //         : element[1]) + ','
         }
     })
 

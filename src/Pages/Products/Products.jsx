@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import MyVerticallyCenteredModal from '../../Modal'
 import exportToCsv from '../../DownloadAllCSV'
+import { parseOriginalDate } from '../../data'
 
 const searchProduct = () => {
     let userData = document
@@ -122,12 +123,12 @@ const Products = ({ logoutAdminUser }) => {
                                 <tr>
                                     <td> Names </td>
                                     <td> Owner ID </td>
-                                    <td> TokenId </td>
+                                    {/* <td> TokenId </td> */}
                                     <td> Royalty </td>
                                     <td> Category </td>
                                     <td> Date </td>
                                     <td> Status </td>
-                                    <td> Approve Status </td>
+                                    {/* <td> Approve Status </td> */}
                                     <td> Views </td>
                                     <td> Details </td>
                                 </tr>
@@ -140,17 +141,29 @@ const Products = ({ logoutAdminUser }) => {
                                     <tr key={value._id}>
                                         <td> {value.name}</td>
                                         <td> {value.owner} </td>
-                                        <td> {value.tokenId} </td>
+                                        {/* <td> {value.tokenId} </td> */}
                                         <td> {value.royalty} </td>
                                         <td> {value.category} </td>
-                                        <td> {value.createdAt} </td>
-                                        <td> {value.nftStatus} </td>
                                         <td>
+                                            {' '}
+                                            {parseOriginalDate(
+                                                value.createdAt
+                                            )}{' '}
+                                        </td>
+                                        <td>
+                                            {' '}
+                                            {value.nftStatus === 1
+                                                ? 'Artist Portfolio'
+                                                : value.nftStatus === 2
+                                                ? 'Sale'
+                                                : 'Auction'}{' '}
+                                        </td>
+                                        {/* <td>
                                             {' '}
                                             {value.isApproved
                                                 ? `✔️`
                                                 : `❌`}{' '}
-                                        </td>
+                                        </td> */}
                                         <td> {value.views} </td>
                                         <td>
                                             <Button
