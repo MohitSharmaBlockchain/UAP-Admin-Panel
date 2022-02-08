@@ -51,7 +51,7 @@ const Header = () => {
                     src={logo}
                     alt='unicus'
                     width={'81%'}
-                    style={{ margin: '7px 4px' }}
+                    style={{ margin: '7.6px 4px' }}
                 />
             </Link>
             <hr />
