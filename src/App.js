@@ -82,7 +82,7 @@ const Header = () => {
                 Users
             </Link>
             <Link
-                to='/products'
+                to='/nfts'
                 className='link'
                 activeClassName='one'
                 style={{
@@ -102,7 +102,7 @@ const Header = () => {
                 NFT Bids
             </Link> */}
             <Link
-                to='/category'
+                to='/nftStatus'
                 className='link'
                 activeClassName='one'
                 style={{
@@ -180,7 +180,7 @@ const AppRouter = () => {
                     }
                 />
                 <Route
-                    path='/products'
+                    path='/nfts'
                     element={
                         isLogin ? (
                             <>
@@ -206,7 +206,7 @@ const AppRouter = () => {
                     }
                 />
                 <Route
-                    path='/category'
+                    path='/nftStatus'
                     element={
                         isLogin ? (
                             <>

@@ -77,7 +77,7 @@ const Dashboard = ({ logoutAdminUser }) => {
                             </div>
                         </Link>
 
-                        <Link to='/products'>
+                        <Link to='/nfts'>
                             <div className='cardOne'>
                                 <FaCoins className='ImageTwo' />
                                 <div>
@@ -89,7 +89,7 @@ const Dashboard = ({ logoutAdminUser }) => {
                             </div>
                         </Link>
 
-                        <Link to='/dashboard'>
+                        {/* <Link to='/dashboard'>
                             <div className='cardOne'>
                                 <FaChartPie className='ImageThree' />
                                 <div>
@@ -99,13 +99,13 @@ const Dashboard = ({ logoutAdminUser }) => {
                                     </h4>
                                 </div>
                             </div>
-                        </Link>
+                        </Link> */}
 
-                        <Link to='/category'>
+                        <Link to='/nftStatus'>
                             <div className='cardOne'>
                                 <FaHandHoldingUSD className='ImageFour' />
                                 <div>
-                                    <p className='cardOne-P'>Sales</p>
+                                    <p className='cardOne-P'>NFT Status</p>
                                     <h4 className='CardOne-H'>
                                         {data.totalSale}
                                     </h4>
@@ -113,7 +113,7 @@ const Dashboard = ({ logoutAdminUser }) => {
                             </div>
                         </Link>
 
-                        <Link to='/dashboard'>
+                        {/* <Link to='/dashboard'>
                             <div className='cardOne'>
                                 <FaCalendarAlt className='ImageFive' />
                                 <div>
@@ -123,9 +123,9 @@ const Dashboard = ({ logoutAdminUser }) => {
                                     </h4>
                                 </div>
                             </div>
-                        </Link>
+                        </Link> */}
 
-                        <Link to='/dashboard'>
+                        {/* <Link to='/dashboard'>
                             <div className='cardOne'>
                                 <FaCalendarCheck className='ImageSix' />
                                 <div>
@@ -135,7 +135,7 @@ const Dashboard = ({ logoutAdminUser }) => {
                                     </h4>
                                 </div>
                             </div>
-                        </Link>
+                        </Link> */}
                     </div>
                     <hr />
                 </div>

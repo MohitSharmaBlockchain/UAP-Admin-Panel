@@ -40,8 +40,12 @@ export default function MyVerticallyCenteredModal({
                                 <>
                                     {data[0] !== 'password' &&
                                         data[0] !== 'backgroundUrl' &&
+                                        data[0] !== '_id' &&
+                                        data[0] !== 'owner' &&
+                                        data[0] !== 'uploadedBy' &&
                                         data[0] !== 'verificationToken' &&
                                         data[0] !== '__v' &&
+                                        data[0] !== 'isApproved' &&
                                         data[0] !== 'balances' &&
                                         data[0] !== 'walletBalance' &&
                                         data[0] !== 'tokenId' &&

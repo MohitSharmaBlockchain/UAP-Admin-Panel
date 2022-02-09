@@ -121,15 +121,15 @@ const Products = ({ logoutAdminUser }) => {
                         <table className='tableTwo'>
                             <thead>
                                 <tr>
-                                    <td> Names </td>
-                                    <td> Owner ID </td>
+                                    <td> NFT Name </td>
+                                    <td> UserInfo </td>
                                     {/* <td> TokenId </td> */}
-                                    <td> Royalty </td>
-                                    <td> Category </td>
-                                    <td> Date </td>
                                     <td> Status </td>
+                                    <td> Chain </td>
+                                    <td> Collection Name </td>
+                                    <td> Date </td>
                                     {/* <td> Approve Status </td> */}
-                                    <td> Views </td>
+                                    {/* <td> Views </td> */}
                                     <td> Details </td>
                                 </tr>
                             </thead>
@@ -140,16 +140,8 @@ const Products = ({ logoutAdminUser }) => {
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td> {value.name}</td>
-                                        <td> {value.owner} </td>
+                                        <td> {value.userInfo} </td>
                                         {/* <td> {value.tokenId} </td> */}
-                                        <td> {value.royalty} </td>
-                                        <td> {value.category} </td>
-                                        <td>
-                                            {' '}
-                                            {parseOriginalDate(
-                                                value.createdAt
-                                            )}{' '}
-                                        </td>
                                         <td>
                                             {' '}
                                             {value.nftStatus === 1
@@ -158,13 +150,30 @@ const Products = ({ logoutAdminUser }) => {
                                                 ? 'Sale'
                                                 : 'Auction'}{' '}
                                         </td>
+                                        <td>
+                                            {' '}
+                                            {value.chain === 137
+                                                ? 'Polygon'
+                                                : value.nftStatus === 56
+                                                ? 'Binance'
+                                                : 'Ethereum'}{' '}
+                                        </td>
+                                        <td>
+                                            {value.collectionName}
+                                        </td>
+                                        <td>
+                                            {' '}
+                                            {parseOriginalDate(
+                                                value.createdAt
+                                            )}{' '}
+                                        </td>
                                         {/* <td>
                                             {' '}
                                             {value.isApproved
                                                 ? `✔️`
                                                 : `❌`}{' '}
                                         </td> */}
-                                        <td> {value.views} </td>
+                                        {/* <td> {value.views} </td> */}
                                         <td>
                                             <Button
                                                 variant='primary'

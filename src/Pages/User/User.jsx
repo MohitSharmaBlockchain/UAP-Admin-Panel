@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import MyVerticallyCenteredModal from '../../Modal'
 import exportToCsv from '../../DownloadAllCSV'
+import { parseOriginalDate } from '../../data'
 
 const searchUser = () => {
     let userData = document
@@ -119,11 +120,10 @@ const Users = ({ logoutAdminUser }) => {
                         <table className='table'>
                             <thead>
                                 <tr>
-                                    <td> Image </td>
-                                    <td> Wallet Id </td>
-                                    <td> Name </td>
+                                    <td> Username </td>
                                     <td> Email </td>
-                                    <td> NFT Count </td>
+                                    <td> User Type </td>
+                                    <td> Created At</td>
                                     {/* <td> Balance </td> */}
                                     {/* <td> Status </td> */}
                                     <td> Details</td>
@@ -132,21 +132,10 @@ const Users = ({ logoutAdminUser }) => {
                             <tbody className='tr' id='searchUser__Name__Body'>
                                 {data.map((value) => (
                                     <tr key={value._id}>
-                                        <td>
-                                            <img
-                                                src={value.profileUrl}
-                                                alt={value.username}
-                                                width={'80px'}
-                                                height={'80px'}
-                                                style={{
-                                                    borderRadius: '50%',
-                                                }}
-                                            />
-                                        </td>
-                                        <td> {value._id}</td>
                                         <td> {value.username} </td>
                                         <td> {value.email} </td>
-                                        <td> </td>
+                                        <td> {value.userType === 1 ? "Email" : (value.userType === 2 ? "Wallet" : "Email and Wallet")}</td>
+                                        <td> {parseOriginalDate(value.createdAt)} </td>
                                         {/* <td> {value.balance} </td> */}
                                         {/* <td> {value.walletBalance} </td>
                                         <td>

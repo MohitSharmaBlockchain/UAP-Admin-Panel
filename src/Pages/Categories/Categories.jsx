@@ -120,7 +120,6 @@ const Category = ({ logoutAdminUser }) => {
                         <table className='tableFour'>
                             <thead>
                                 <tr>
-                                    <td> Nft ID </td>
                                     <td> State </td>
                                     <td> Price </td>
                                     <td> From </td>
@@ -135,9 +134,8 @@ const Category = ({ logoutAdminUser }) => {
                             >
                                 {data.map((value) => (
                                     <tr key={value._id}>
-                                        <td> {value.nftId}</td>
                                         <td> {value.state} </td>
-                                        <td> {value.price} </td>
+                                        <td> {value.price ? value.price/Math.pow(10, 18) : ''} </td>
                                         <td> {value.from} </td>
                                         <td> {value.to} </td>
                                         <td>
