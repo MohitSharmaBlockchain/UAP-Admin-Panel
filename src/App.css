@@ -101,11 +101,13 @@ hr {
     flex-wrap: wrap;
     background: transparent !important;
     /* color: #282c34 !important; */
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 80vh;
     overflow: scroll;
     overflow-x: hidden;
+    padding: 50px 0;
     user-select: none;
 }
 
@@ -127,7 +129,8 @@ hr {
     border-radius: 10px;
     background-color: rgba(27, 44, 71, 0.5);
     margin: 30px;
-    width: 253px;
+    width: 300px;
+    padding: 10px;
     align-items: center;
 }
 

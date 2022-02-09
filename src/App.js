@@ -32,11 +32,11 @@ const Header = () => {
             setActive('DASHBOARD')
         } else if (path === '/users') {
             setActive('USERS')
-        } else if (path === '/products') {
+        } else if (path === '/nfts') {
             setActive('PRODUCTS')
         } else if (path === '/orders') {
             setActive('ORDERS')
-        } else if (path === '/category') {
+        } else if (path === '/nftStatus') {
             setActive('CATEGORY')
         }
     }, [path])
