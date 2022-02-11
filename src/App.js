@@ -22,6 +22,7 @@ import Category from './Pages/Categories/Categories'
 import Login from './Pages/Login/Login'
 import { useEffect, useState } from 'react'
 import logo from './logo_white.png'
+import { AdminsEdit } from './Pages/Admin/Admin'
 
 const Header = () => {
     const [active, setActive] = useState('DASHBOARD')
@@ -38,6 +39,8 @@ const Header = () => {
             setActive('ORDERS')
         } else if (path === '/nftStatus') {
             setActive('CATEGORY')
+        } else if (path === '/editAdmin') {
+            setActive('ADMIN')
         }
     }, [path])
 
@@ -112,6 +115,18 @@ const Header = () => {
             >
                 <FaChartPie className='imageOne' />
                 NFT Status
+            </Link>
+            <Link
+                to='/editAdmin'
+                className='link'
+                activeClassName='one'
+                style={{
+                    background:
+                        active === 'ADMIN' ? 'rgba(196, 196, 196, 0.4)' : '',
+                }}
+            >
+                <FaChartPie className='imageOne' />
+                Admin Controller
             </Link>
         </div>
     )
@@ -212,6 +227,19 @@ const AppRouter = () => {
                             <>
                                 <Header />
                                 <Category logoutAdminUser={logoutAdminUser} />
+                            </>
+                        ) : (
+                            <Navigate to='/' />
+                        )
+                    }
+                />
+                <Route
+                    path='/editAdmin'
+                    element={
+                        isLogin ? (
+                            <>
+                                <Header />
+                                <AdminsEdit logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
                             <Navigate to='/' />

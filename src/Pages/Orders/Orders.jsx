@@ -119,13 +119,13 @@ const Orders = ({ logoutAdminUser }) => {
                         <table className='tableThree'>
                             <thead>
                                 <tr>
-                                    <td> Product Name </td>
-                                    <td> Seller Name </td>
-                                    <td> Buyer Name </td>
-                                    <td> Currency </td>
-                                    <td> Date </td>
-                                    <td> Amount </td>
-                                    <td> Details </td>
+                                    <th> Product Name </th>
+                                    <th> Seller Name </th>
+                                    <th> Buyer Name </th>
+                                    <th> Currency </th>
+                                    <th> Date </th>
+                                    <th> Amount </th>
+                                    <th> Details </th>
                                 </tr>
                             </thead>
                             <tbody className='tr' id='searchOrder__Name__Body'>

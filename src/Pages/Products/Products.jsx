@@ -121,16 +121,16 @@ const Products = ({ logoutAdminUser }) => {
                         <table className='tableTwo'>
                             <thead>
                                 <tr>
-                                    <td> NFT Name </td>
-                                    <td> UserInfo </td>
+                                    <th> NFT Name </th>
+                                    <th> UserInfo </th>
                                     {/* <td> TokenId </td> */}
-                                    <td> Status </td>
-                                    <td> Chain </td>
-                                    <td> Collection Name </td>
-                                    <td> Date </td>
+                                    <th> Status </th>
+                                    <th> Chain </th>
+                                    <th> Collection Name </th>
+                                    <th> Date </th>
                                     {/* <td> Approve Status </td> */}
                                     {/* <td> Views </td> */}
-                                    <td> Details </td>
+                                    <th> Details </th>
                                 </tr>
                             </thead>
                             <tbody
@@ -158,9 +158,7 @@ const Products = ({ logoutAdminUser }) => {
                                                 ? 'Binance'
                                                 : 'Ethereum'}{' '}
                                         </td>
-                                        <td>
-                                            {value.collectionName}
-                                        </td>
+                                        <td>{value.collectionName}</td>
                                         <td>
                                             {' '}
                                             {parseOriginalDate(

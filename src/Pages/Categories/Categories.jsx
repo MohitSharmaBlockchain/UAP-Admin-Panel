@@ -120,12 +120,12 @@ const Category = ({ logoutAdminUser }) => {
                         <table className='tableFour'>
                             <thead>
                                 <tr>
-                                    <td> State </td>
-                                    <td> Price </td>
-                                    <td> From </td>
-                                    <td> To </td>
-                                    <td> Date </td>
-                                    <td> Details </td>
+                                    <th> State </th>
+                                    <th> Price </th>
+                                    <th> From </th>
+                                    <th> To </th>
+                                    <th> Date </th>
+                                    <th> Details </th>
                                 </tr>
                             </thead>
                             <tbody
@@ -135,7 +135,12 @@ const Category = ({ logoutAdminUser }) => {
                                 {data.map((value) => (
                                     <tr key={value._id}>
                                         <td> {value.state} </td>
-                                        <td> {value.price ? value.price/Math.pow(10, 18) : ''} </td>
+                                        <td>
+                                            {' '}
+                                            {value.price
+                                                ? value.price / Math.pow(10, 18)
+                                                : ''}{' '}
+                                        </td>
                                         <td> {value.from} </td>
                                         <td> {value.to} </td>
                                         <td>

@@ -117,16 +117,16 @@ const Users = ({ logoutAdminUser }) => {
                     </div>
                     <br />
                     <div className='User'>
-                        <table className='table'>
+                        <table className='tableFour'>
                             <thead>
                                 <tr>
-                                    <td> Username </td>
-                                    <td> Email </td>
-                                    <td> User Type </td>
-                                    <td> Created At</td>
+                                    <th> Username </th>
+                                    <th> Email </th>
+                                    <th> User Type </th>
+                                    <th> Created At</th>
                                     {/* <td> Balance </td> */}
                                     {/* <td> Status </td> */}
-                                    <td> Details</td>
+                                    <th> Details</th>
                                 </tr>
                             </thead>
                             <tbody className='tr' id='searchUser__Name__Body'>
@@ -134,8 +134,20 @@ const Users = ({ logoutAdminUser }) => {
                                     <tr key={value._id}>
                                         <td> {value.username} </td>
                                         <td> {value.email} </td>
-                                        <td> {value.userType === 1 ? "Email" : (value.userType === 2 ? "Wallet" : "Email and Wallet")}</td>
-                                        <td> {parseOriginalDate(value.createdAt)} </td>
+                                        <td>
+                                            {' '}
+                                            {value.userType === 1
+                                                ? 'Email'
+                                                : value.userType === 2
+                                                ? 'Wallet'
+                                                : 'Email and Wallet'}
+                                        </td>
+                                        <td>
+                                            {' '}
+                                            {parseOriginalDate(
+                                                value.createdAt
+                                            )}{' '}
+                                        </td>
                                         {/* <td> {value.balance} </td> */}
                                         {/* <td> {value.walletBalance} </td>
                                         <td>
