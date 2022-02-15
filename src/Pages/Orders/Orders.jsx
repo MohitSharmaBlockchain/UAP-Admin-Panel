@@ -66,6 +66,7 @@ const Orders = ({ logoutAdminUser }) => {
                     className='flex items-center justify-center'
                     style={{
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
                         height: '100vh',
@@ -76,6 +77,7 @@ const Orders = ({ logoutAdminUser }) => {
                         role='status'
                         style={{ width: '6rem', height: ' 6rem' }}
                     />
+                    <h3 style={{marginTop: '1rem'}}>Loading NFT Status List...</h3>
                 </div>
             ) : (
                 <div className='third'>

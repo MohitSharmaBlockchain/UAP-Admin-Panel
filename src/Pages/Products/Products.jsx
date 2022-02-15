@@ -68,6 +68,7 @@ const Products = ({ logoutAdminUser }) => {
                     className='flex items-center justify-center'
                     style={{
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
                         height: '100vh',
@@ -78,6 +79,7 @@ const Products = ({ logoutAdminUser }) => {
                         role='status'
                         style={{ width: '6rem', height: ' 6rem' }}
                     />
+                    <h3 style={{marginTop: '1rem'}}>Loading NFT List...</h3>
                 </div>
             ) : (
                 <div className='third'>

@@ -67,6 +67,7 @@ const Users = ({ logoutAdminUser }) => {
                     className='flex items-center justify-center'
                     style={{
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
                         height: '100vh',
@@ -77,6 +78,7 @@ const Users = ({ logoutAdminUser }) => {
                         role='status'
                         style={{ width: '6rem', height: ' 6rem' }}
                     />
+                    <h3 style={{marginTop: '1rem'}}>Loading User List...</h3>
                 </div>
             ) : (
                 <div className='third'>
