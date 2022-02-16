@@ -46,10 +46,23 @@ export default function MyVerticallyCenteredModal({
                                         data[0] !== 'verificationToken' &&
                                         data[0] !== '__v' &&
                                         data[0] !== 'isApproved' &&
+                                        data[0] !== 'approvedAt' &&
+                                        data[0] !== 'firstName' &&
+                                        data[0] !== 'profileUrl' &&
+                                        data[0] !== 'lastName' &&
+                                        data[0] !== 'blockNumber' &&
+                                        data[0] !== 'mintHash' &&
+                                        data[0] !== 'mintReceipt' &&
                                         data[0] !== 'balances' &&
                                         data[0] !== 'walletBalance' &&
                                         data[0] !== 'tokenId' &&
+                                        data[0] !== 'auctionId' &&
                                         data[0] !== 'isVerified' &&
+                                        data[0] !== 'verifiedOn' &&
+                                        data[0] !== 'nonce' &&
+                                        data[0] !== 'passwordToken' &&
+                                        data[0] !==
+                                            'passwordTokenExpirationDate' &&
                                         data[1] !== '' &&
                                         data[0] !== 'jsonHash' &&
                                         data[0] !== 'cloudinaryUrl' && (
@@ -81,6 +94,9 @@ export default function MyVerticallyCenteredModal({
                                                     >
                                                         {data[0] === '_id'
                                                             ? 'ID'
+                                                            : data[0] ===
+                                                              'username'
+                                                            ? 'DISPLAY NAME'
                                                             : data[0].toUpperCase()}
                                                     </p>
                                                 )}

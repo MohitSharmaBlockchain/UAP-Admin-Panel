@@ -251,8 +251,11 @@ thead td {
     border: 1px solid rgba(89, 105, 133, 0.5);
 }
 
-tbody thead tr th {
+table thead tr th {
     border-bottom: 1px solid rgba(89, 105, 133, 0.5);
+    position: sticky;
+    top: 0;
+    background: #0e2c59;
 }
 
 @media (prefers-reduced-motion: no-preference) {
