@@ -16,12 +16,12 @@ export const AdminModal = ({ open, setOpen, id, status }) => {
         e.preventDefault()
         // dispatch(updateAdminAction(emailAddress, status))
         await axios
-            .post(`http://localhost:4000/admin/editAdmin`, {
+            .post(`http://localhost:4000/admin/register`, {
                 email: emailAddress,
-                status: 11,
             })
             .then((res) => {
                 console.log(res.data)
+                setOpen(false)
                 // setAdminData(res.data)
             })
             .catch((err) => {
@@ -34,18 +34,19 @@ export const AdminModal = ({ open, setOpen, id, status }) => {
 
     const DeleteAdmin = async (e) => {
         e.preventDefault()
+        console.log(emailAddress)
         // dispatch(updateAdminAction(emailAddress, status))
         await axios
-            .post(`http://localhost:4000/admin/editAdmin`, {
+            .post(`http://localhost:4000/admin/deleteAdmin`, {
                 email: emailAddress,
-                status: 12,
             })
             .then((res) => {
                 console.log(res.data)
+                setOpen(false)
                 // setAdminData(res.data)
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err.response.data.msg)
             })
         console.log('DELETED ADMIN!!')
         console.log(walletAddress, emailAddress)

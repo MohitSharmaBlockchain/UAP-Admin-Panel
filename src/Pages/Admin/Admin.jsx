@@ -18,7 +18,7 @@ export const AdminsEdit = ({ logoutAdminUser }) => {
             await axios
                 .get(`http://localhost:4000/admin/getAllAdmin`)
                 .then((res) => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     setAdminData(res.data)
                 })
                 .catch((err) => {
@@ -102,7 +102,7 @@ const AdminTable = ({ data, msg }) => {
                         </th>
                         <th className='px-4 py-2 w-96 text-left'>Email ID</th>
                         <th className='px-4 py-2 w-96 text-left'>
-                            Admin Username
+                            Admin Verified
                         </th>
                         <th className='px-4 py-2 w-96 text-left'>
                             Creation Date
@@ -145,25 +145,14 @@ const AdminTableData = ({ id, isAdminInfo, data }) => {
         >
             <td className='px-4 py-2 border-opacity-70 text-white'>{id}</td>
             <td className='px-4 py-2 border-opacity-70'>{data.email}</td>
-            <td className='px-4 py-2 border-opacity-70'>{data.username}</td>
-            {/* {isAdminInfo ? ( */}
+            {data.isVerified ? (
+                <td className='px-4 py-2 border-opacity-70'>✔️</td>
+            ) : (
+                <td className='px-4 py-2 border-opacity-70'>❌</td>
+            )}
             <td className='px-4 py-2 border-opacity-70'>
                 {`${date[1]} ${date[2]},${date[3]}`}
             </td>
-            {/* ) : (
-                <td className='border px-4 py-2 border-BorderColor border-opacity-70'>
-                    Jan 25, 22 (DELETED)
-                </td>
-            )} */}
-            {/* {isAdminInfo ? (
-                <td className='border px-4 py-2 border-BorderColor border-opacity-70'>
-                    ✔️ Admin
-                </td>
-            ) : (
-                <td className='border px-4 py-2 border-BorderColor border-opacity-70'>
-                    ❌ No Longer Admin
-                </td>
-            )} */}
         </tr>
     )
 }

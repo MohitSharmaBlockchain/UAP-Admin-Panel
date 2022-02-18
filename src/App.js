@@ -23,8 +23,9 @@ import Login from './Pages/Login/Login'
 import { useEffect, useState } from 'react'
 import logo from './logo_white.png'
 import { AdminsEdit } from './Pages/Admin/Admin'
+import VerifyEmail from './components/VerifyEmail/VerifyEmail'
 
-const Header = () => {
+const Header = ({ isAdmin }) => {
     const [active, setActive] = useState('DASHBOARD')
     const location = useLocation()
     const path = location.pathname
@@ -116,29 +117,42 @@ const Header = () => {
                 <FaChartPie className='imageOne' />
                 NFT Status
             </Link>
-            <Link
-                to='/editAdmin'
-                className='link'
-                activeClassName='one'
-                style={{
-                    background:
-                        active === 'ADMIN' ? 'rgba(196, 196, 196, 0.4)' : '',
-                }}
-            >
-                <FaChartPie className='imageOne' />
-                Admin Controller
-            </Link>
+            {isAdmin && (
+                <Link
+                    to='/editAdmin'
+                    className='link'
+                    activeClassName='one'
+                    style={{
+                        background:
+                            active === 'ADMIN'
+                                ? 'rgba(196, 196, 196, 0.4)'
+                                : '',
+                    }}
+                >
+                    <FaChartPie className='imageOne' />
+                    Admin Controller
+                </Link>
+            )}
         </div>
     )
 }
 
 const AppRouter = () => {
-    const [isLogin, setLogin] = useState(true)
+    const [isLogin, setLogin] = useState(false)
+    const [isAdmin, setAdmin] = useState(false)
+    const [isRegister, setRegister] = useState(false)
     const [err, setErr] = useState('')
 
     useEffect(() => {
         if (localStorage.getItem('adminnInfo')) {
             setLogin(true)
+            setRegister(true)
+            if (
+                JSON.parse(localStorage.getItem('adminnInfo')).data.user
+                    .isAdmin === true
+            ) {
+                setAdmin(true)
+            }
         }
         return () => {}
     }, [])
@@ -168,11 +182,22 @@ const AppRouter = () => {
                     exact={true}
                 />
                 <Route
+                    path='/login/:verificationToken/:email/:token'
+                    element={
+                        !isRegister ? (
+                            <VerifyEmail setRegister={setRegister} />
+                        ) : (
+                            <Navigate to='/' />
+                        )
+                    }
+                    exact={true}
+                />
+                <Route
                     path='/dashboard'
                     element={
                         isLogin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <Dashboard logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
@@ -186,7 +211,7 @@ const AppRouter = () => {
                     element={
                         isLogin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <Users logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
@@ -199,7 +224,7 @@ const AppRouter = () => {
                     element={
                         isLogin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <Products logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
@@ -212,7 +237,7 @@ const AppRouter = () => {
                     element={
                         isLogin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <Orders logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
@@ -225,7 +250,7 @@ const AppRouter = () => {
                     element={
                         isLogin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <Category logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
@@ -236,9 +261,9 @@ const AppRouter = () => {
                 <Route
                     path='/editAdmin'
                     element={
-                        isLogin ? (
+                        isLogin && isAdmin ? (
                             <>
-                                <Header />
+                                <Header isAdmin={isAdmin} />
                                 <AdminsEdit logoutAdminUser={logoutAdminUser} />
                             </>
                         ) : (
