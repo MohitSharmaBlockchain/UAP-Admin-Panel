@@ -14,7 +14,7 @@ const searchUser = () => {
     let container = document.getElementById('searchUser__Name__Body')
     let tr = container.getElementsByTagName('tr')
 
-    for (let i = 0;i < tr.length;i++) {
+    for (let i = 0; i < tr.length; i++) {
         const element = tr[i]
 
         let text = element.getElementsByTagName('td')
@@ -22,7 +22,7 @@ const searchUser = () => {
 
         // console.log(text);
 
-        for (let j = 0;j < text.length;j++) {
+        for (let j = 0; j < text.length; j++) {
             tdText += text[j].innerText
         }
         // console.log(cardText);
@@ -57,12 +57,12 @@ const filterData = (e, type) => {
         }
     }
     userData = userData.toUpperCase()
-    console.log(userData);
+    console.log(userData)
 
     let container = document.getElementById('searchUser__Name__Body')
     let tr = container.getElementsByTagName('tr')
 
-    for (let i = 0;i < tr.length;i++) {
+    for (let i = 0; i < tr.length; i++) {
         const element = tr[i]
 
         let text = element.getElementsByTagName('td')
@@ -70,7 +70,7 @@ const filterData = (e, type) => {
 
         // console.log(text);
 
-        for (let j = 0;j < text.length;j++) {
+        for (let j = 0; j < text.length; j++) {
             tdText += text[j].innerText
         }
         // console.log(cardText);
@@ -93,6 +93,7 @@ const filterData = (e, type) => {
 const Users = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
+    const [fetching, setFetching] = useState(false)
     const [modalShow, setModalShow] = useState(false)
     // const [userType, setUserType] = useState(0)
     const [details, setDetails] = useState({})
@@ -114,50 +115,39 @@ const Users = ({ logoutAdminUser }) => {
                 console.log(err)
                 setLoading(false)
             })
-    }, [])
+    }, [fetching])
 
-    // useEffect(() => {
-    //     const
-    //         table = document.querySelector('.table__head'),
-    //         filterState = {};
+    const banUser = async (e, id) => {
+        e.preventDefault()
+        axios
+            .post('http://localhost:4000/users/banUser', {
+                userId: id,
+            })
+            .then((req) => {
+                console.log(req.data)
+                setFetching(!fetching)
+                // window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
-    //     const dataFromRow = (row, headers) =>
-    //         Object.fromEntries([...row.querySelectorAll('td')]
-    //             .map((td, index) => [headers[index], td.textContent]));
-
-    //     const matchesCriteria = (rowData, filters) =>
-    //         filters.every(([key, value]) => rowData[key] === value);
-
-    //     const refresh = () => {
-    //         const
-    //             headers = [...table.querySelectorAll('thead th')].map(th => th.textContent),
-    //             filters = Object.entries(filterState),
-    //             showAll = filters.length === 0;
-    //         table.querySelectorAll('tbody tr').forEach(row => {
-    //             const show = showAll || matchesCriteria(dataFromRow(row, headers), filters);
-    //             row.classList.toggle('hidden-row', !show);
-    //         });
-    //     };
-
-    //     const handleFilterChange = (e) => {
-    //         console.log(e);
-    //         const
-    //             field = e.target.dataset.field,
-    //             value = e.target.value;
-    //         console.log(field, value);
-    //         if (value) { filterState[field] = value; }
-    //         else { delete filterState[field]; }
-    //         refresh();
-    //     };
-
-    //     console.log(filterState);
-
-    //     document.querySelectorAll('.filter__Select').forEach(filter => {
-    //         // console.log(filter)
-    //         filter.addEventListener('change', handleFilterChange)
-    //     }
-    //     )
-    // }, [userType])
+    const unbanUser = async (e, id) => {
+        e.preventDefault()
+        axios
+            .post('http://localhost:4000/users/unbanUser', {
+                userId: id,
+            })
+            .then((req) => {
+                console.log(req.data)
+                setFetching(!fetching)
+                // window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return (
         <>
@@ -234,11 +224,13 @@ const Users = ({ logoutAdminUser }) => {
                                         /> */}
                                         <select
                                             className='filter__Select bg-transparent float-right outline-none border border-[#ccc] rounded-md p-1'
-                                            onChange={(e) =>
-                                                filterData(e)
+                                            onChange={
+                                                (e) => filterData(e)
                                                 // setUserType(e.target.value)
                                             }
-                                            onDragEnd={(e) => filterData(e, 'END')}
+                                            onDragEnd={(e) =>
+                                                filterData(e, 'END')
+                                            }
                                             defaultValue={0}
                                         >
                                             <option
@@ -270,6 +262,7 @@ const Users = ({ logoutAdminUser }) => {
                                     <th> Created At</th>
                                     {/* <td> Balance </td> */}
                                     {/* <td> Status </td> */}
+                                    <th> Ban/Unban</th>
                                     <th> Details</th>
                                 </tr>
                             </thead>
@@ -283,8 +276,8 @@ const Users = ({ logoutAdminUser }) => {
                                             {value.userType === 1
                                                 ? 'Email'
                                                 : value.userType === 2
-                                                    ? 'Wallet'
-                                                    : 'Email and Wallet'}
+                                                ? 'Wallet'
+                                                : 'Email and Wallet'}
                                         </td>
                                         <td>
                                             {' '}
@@ -299,6 +292,27 @@ const Users = ({ logoutAdminUser }) => {
                                                 Deactivate
                                             </Button>
                                         </td> */}
+                                        <td className='flex items-center justify-center'>
+                                            {value.active ? (
+                                                <Button
+                                                    variant='secondary'
+                                                    onClick={(e) => {
+                                                        banUser(e, value._id)
+                                                    }}
+                                                >
+                                                    BAN
+                                                </Button>
+                                            ) : (
+                                                <Button
+                                                    variant='primary'
+                                                    onClick={(e) => {
+                                                        unbanUser(e, value._id)
+                                                    }}
+                                                >
+                                                    UNBAN
+                                                </Button>
+                                            )}
+                                        </td>
                                         <td>
                                             <Button
                                                 variant='primary'

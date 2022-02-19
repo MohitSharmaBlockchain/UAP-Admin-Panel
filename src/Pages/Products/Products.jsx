@@ -40,6 +40,7 @@ const Products = ({ logoutAdminUser }) => {
     const [data, setData] = useState([])
     const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(false)
+    const [fetching, setFetching] = useState(false)
     const [modalShow, setModalShow] = useState(false)
 
     useEffect(() => {
@@ -59,7 +60,39 @@ const Products = ({ logoutAdminUser }) => {
                 console.log(err)
                 setLoading(false)
             })
-    }, [])
+    }, [fetching])
+
+    const banUser = async (e, id) => {
+        e.preventDefault()
+        axios
+            .post('http://localhost:4000/nft/banNFT', {
+                userId: id,
+            })
+            .then((req) => {
+                console.log(req.data)
+                setFetching(!fetching)
+                // window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const unbanUser = async (e, id) => {
+        e.preventDefault()
+        axios
+            .post('http://localhost:4000/nft/unbanNFT', {
+                userId: id,
+            })
+            .then((req) => {
+                console.log(req.data)
+                setFetching(!fetching)
+                // window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return (
         <>
@@ -79,7 +112,7 @@ const Products = ({ logoutAdminUser }) => {
                         role='status'
                         style={{ width: '6rem', height: ' 6rem' }}
                     />
-                    <h3 style={{marginTop: '1rem'}}>Loading NFT List...</h3>
+                    <h3 style={{ marginTop: '1rem' }}>Loading NFT List...</h3>
                 </div>
             ) : (
                 <div className='third'>
@@ -133,6 +166,7 @@ const Products = ({ logoutAdminUser }) => {
                                     <th> Ban/Unban </th>
                                     {/* <td> Approve Status </td> */}
                                     {/* <td> Views </td> */}
+                                    <th> Ban/Unban </th>
                                     <th> Details </th>
                                 </tr>
                             </thead>
@@ -175,6 +209,27 @@ const Products = ({ logoutAdminUser }) => {
                                                 : `❌`}{' '}
                                         </td> */}
                                         {/* <td> {value.views} </td> */}
+                                        <td className='flex items-center justify-center'>
+                                            {value.active !== false ? (
+                                                <Button
+                                                    variant='secondary'
+                                                    onClick={(e) => {
+                                                        banUser(e, value._id)
+                                                    }}
+                                                >
+                                                    BAN
+                                                </Button>
+                                            ) : (
+                                                <Button
+                                                    variant='primary'
+                                                    onClick={(e) => {
+                                                        unbanUser(e, value._id)
+                                                    }}
+                                                >
+                                                    UNBAN
+                                                </Button>
+                                            )}
+                                        </td>
                                         <td>
                                             <Button
                                                 variant='primary'
