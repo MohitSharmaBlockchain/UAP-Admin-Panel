@@ -76,8 +76,14 @@ const filterData = (e, type) => {
         // console.log(cardText);
 
         let textValue = tdText
+        var regex = new RegExp(`${userData}`, "ig");
+
         if (textValue.toUpperCase().indexOf(userData) > -1) {
-            element.style.display = ''
+            if(userData === "EMAIL" && textValue.toUpperCase().indexOf("EMAIL AND WALLET") > -1) {
+                element.style.display = 'none'
+            } else {
+                element.style.display = ''
+            }
         } else {
             element.style.display = 'none'
         }

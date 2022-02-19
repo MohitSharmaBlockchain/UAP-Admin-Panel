@@ -130,6 +130,7 @@ const Products = ({ logoutAdminUser }) => {
                                     <th> Chain </th>
                                     <th> Collection Name </th>
                                     <th> Date </th>
+                                    <th> Ban/Unban </th>
                                     {/* <td> Approve Status </td> */}
                                     {/* <td> Views </td> */}
                                     <th> Details </th>
@@ -174,6 +175,17 @@ const Products = ({ logoutAdminUser }) => {
                                                 : `❌`}{' '}
                                         </td> */}
                                         {/* <td> {value.views} </td> */}
+                                        <td>
+                                            <Button
+                                                variant='primary'
+                                                onClick={() => {
+                                                    setDetails(value)
+                                                    setModalShow(true)
+                                                }}
+                                            >
+                                                {user.active}
+                                            </Button>
+                                        </td>
                                         <td>
                                             <Button
                                                 variant='primary'
