@@ -166,7 +166,6 @@ const Products = ({ logoutAdminUser }) => {
                                     <th> Ban/Unban </th>
                                     {/* <td> Approve Status </td> */}
                                     {/* <td> Views </td> */}
-                                    <th> Ban/Unban </th>
                                     <th> Details </th>
                                 </tr>
                             </thead>
@@ -229,17 +228,6 @@ const Products = ({ logoutAdminUser }) => {
                                                     UNBAN
                                                 </Button>
                                             )}
-                                        </td>
-                                        <td>
-                                            <Button
-                                                variant='primary'
-                                                onClick={() => {
-                                                    setDetails(value)
-                                                    setModalShow(true)
-                                                }}
-                                            >
-                                                {user.active}
-                                            </Button>
                                         </td>
                                         <td>
                                             <Button

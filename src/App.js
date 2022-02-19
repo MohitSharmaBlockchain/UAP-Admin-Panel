@@ -155,7 +155,7 @@ const AppRouter = () => {
             }
         }
         return () => {}
-    }, [])
+    }, [isAdmin])
 
     const logoutAdminUser = (e) => {
         localStorage.removeItem('adminnInfo')
