@@ -163,9 +163,9 @@ const Products = ({ logoutAdminUser }) => {
                                     <th> Chain </th>
                                     <th> Collection Name </th>
                                     <th> Date </th>
+                                    <th> Ban/Unban </th>
                                     {/* <td> Approve Status </td> */}
                                     {/* <td> Views </td> */}
-                                    <th> Ban/Unban </th>
                                     <th> Details </th>
                                 </tr>
                             </thead>
