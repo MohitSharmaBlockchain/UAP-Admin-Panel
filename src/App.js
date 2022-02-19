@@ -147,6 +147,9 @@ const AppRouter = () => {
         if (localStorage.getItem('adminnInfo')) {
             setLogin(true)
             setRegister(true)
+            console.log(
+                JSON.parse(localStorage.getItem('adminnInfo')).data.user.isAdmin
+            )
             if (
                 JSON.parse(localStorage.getItem('adminnInfo')).data.user
                     .isAdmin === true
@@ -155,11 +158,13 @@ const AppRouter = () => {
             }
         }
         return () => {}
-    }, [])
+    }, [isLogin])
 
     const logoutAdminUser = (e) => {
         localStorage.removeItem('adminnInfo')
         setLogin(false)
+        setAdmin(false)
+        setRegister(false)
     }
 
     return (
