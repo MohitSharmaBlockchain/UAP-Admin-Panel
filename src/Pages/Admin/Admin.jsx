@@ -173,7 +173,7 @@ const AdminInfo = ({ count1, count2, open, setOpen }) => {
                             {count1} ADMINS
                         </span>
                     </div>
-                    <div className='center flex items-center mt-5 gap-x-3'>
+                    <div className='center flex items-center mt-4 gap-x-3'>
                         <Button
                             className='rounded-lg flex items-center justify-center px-8 w-max bg-CardCycle hover:bg-HoverCardCycle transition-opacity delay-500 py-px screen5:text-sm screen13:px-4'
                             onClick={() => {
