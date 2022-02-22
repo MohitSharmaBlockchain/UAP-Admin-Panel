@@ -16,7 +16,7 @@ export const AdminsEdit = ({ logoutAdminUser }) => {
     useEffect(() => {
         const getData = async () => {
             await axios
-                .get(`http://localhost:4000/admin/getAllAdmin`)
+                .get(`https://nft-backend.unicus.one/admin/getAllAdmin`)
                 .then((res) => {
                     // console.log(res.data)
                     setAdminData(res.data)

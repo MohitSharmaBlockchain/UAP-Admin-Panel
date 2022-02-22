@@ -65,7 +65,7 @@ const Products = ({ logoutAdminUser }) => {
     const banUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('http://localhost:4000/nft/banNFT', {
+            .post('https://nft-backend.unicus.one/nft/banNFT', {
                 userId: id,
             })
             .then((req) => {
@@ -81,7 +81,7 @@ const Products = ({ logoutAdminUser }) => {
     const unbanUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('http://localhost:4000/nft/unbanNFT', {
+            .post('https://nft-backend.unicus.one/nft/unbanNFT', {
                 userId: id,
             })
             .then((req) => {

@@ -120,7 +120,7 @@ const Users = ({ logoutAdminUser }) => {
     const banUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('http://localhost:4000/users/banUser', {
+            .post('https://nft-backend.unicus.one/users/banUser', {
                 userId: id,
             })
             .then((req) => {
@@ -136,7 +136,7 @@ const Users = ({ logoutAdminUser }) => {
     const unbanUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('http://localhost:4000/users/unbanUser', {
+            .post('https://nft-backend.unicus.one/users/unbanUser', {
                 userId: id,
             })
             .then((req) => {
