@@ -5,7 +5,7 @@ import '../../App.css'
 import axios from 'axios'
 // import { useDispatch } from 'react-redux'
 // import { updateAdminAction } from '../../../redux/actions/userAction'
-// https://nft-backend.unicus.one/admin/editAdmin
+// https://unicusbackend.herokuapp.com/admin/editAdmin
 export const AdminModal = ({ open, setOpen, id, status }) => {
     const [walletAddress, setWalletAddress] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
@@ -16,7 +16,7 @@ export const AdminModal = ({ open, setOpen, id, status }) => {
         e.preventDefault()
         // dispatch(updateAdminAction(emailAddress, status))
         await axios
-            .post(`https://nft-backend.unicus.one/admin/register`, {
+            .post(`https://unicusbackend.herokuapp.com/admin/register`, {
                 email: emailAddress,
             })
             .then((res) => {
@@ -37,7 +37,7 @@ export const AdminModal = ({ open, setOpen, id, status }) => {
         console.log(emailAddress)
         // dispatch(updateAdminAction(emailAddress, status))
         await axios
-            .post(`https://nft-backend.unicus.one/admin/deleteAdmin`, {
+            .post(`https://unicusbackend.herokuapp.com/admin/deleteAdmin`, {
                 email: emailAddress,
             })
             .then((res) => {

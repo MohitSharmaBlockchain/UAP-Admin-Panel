@@ -49,7 +49,7 @@ const Orders = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://nft-backend.unicus.one/admin/bids', config)
+            .get('https://unicusbackend.herokuapp.com/admin/bids', config)
             .then((result) => {
                 setData(result.data.totalBids)
                 setLoading(false)

@@ -50,7 +50,7 @@ const Category = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://nft-backend.unicus.one/admin/nftStates', config)
+            .get('https://unicusbackend.herokuapp.com/admin/nftStates', config)
             .then((result) => {
                 setData(result.data.totalNftStates)
                 setLoading(false)

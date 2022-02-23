@@ -23,7 +23,7 @@ const Dashboard = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://nft-backend.unicus.one/admin/dashboard', config)
+            .get('https://unicusbackend.herokuapp.com/admin/dashboard', config)
             .then((result) => {
                 setData(result.data)
                 setLoading(false)

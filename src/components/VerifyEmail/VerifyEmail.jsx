@@ -26,7 +26,7 @@ const VerifyEmail = ({ setRegister }) => {
         } else {
             axios
                 .post(
-                    `https://nft-backend.unicus.one/admin/verify-email?email=${email}&token=${authenticationToken}`,
+                    `https://unicusbackend.herokuapp.com/admin/verify-email?email=${email}&token=${authenticationToken}`,
                     {
                         password: password,
                         token: token,

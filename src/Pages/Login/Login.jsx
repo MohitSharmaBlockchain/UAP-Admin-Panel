@@ -13,7 +13,7 @@ const Login = ({ setLogin, err, setErr }) => {
         //     password: e.target[1].value,
         // })
         axios
-            .post('https://nft-backend.unicus.one/admin/login', {
+            .post('https://unicusbackend.herokuapp.com/admin/login', {
                 email: e.target[0].value,
                 password: e.target[1].value,
             })

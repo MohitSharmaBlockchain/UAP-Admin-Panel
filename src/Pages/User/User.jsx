@@ -106,7 +106,7 @@ const Users = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://nft-backend.unicus.one/admin/users', config)
+            .get('https://unicusbackend.herokuapp.com/admin/users', config)
             .then((result) => {
                 setData(result.data.totalUsers)
                 setLoading(false)
@@ -120,7 +120,7 @@ const Users = ({ logoutAdminUser }) => {
     const banUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('https://nft-backend.unicus.one/users/banUser', {
+            .post('https://unicusbackend.herokuapp.com/users/banUser', {
                 userId: id,
             })
             .then((req) => {
@@ -136,7 +136,7 @@ const Users = ({ logoutAdminUser }) => {
     const unbanUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('https://nft-backend.unicus.one/users/unbanUser', {
+            .post('https://unicusbackend.herokuapp.com/users/unbanUser', {
                 userId: id,
             })
             .then((req) => {
