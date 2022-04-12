@@ -51,7 +51,7 @@ const Products = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://unicusbackend.herokuapp.com/admin/nfts', config)
+            .get('https://media-prime-backend.herokuapp.com/admin/nfts', config)
             .then((result) => {
                 setData(result.data.totalNfts)
                 setLoading(false)
@@ -65,7 +65,7 @@ const Products = ({ logoutAdminUser }) => {
     const banUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('https://unicusbackend.herokuapp.com/nft/banNFT', {
+            .post('https://media-prime-backend.herokuapp.com/nft/banNFT', {
                 userId: id,
             })
             .then((req) => {
@@ -81,7 +81,7 @@ const Products = ({ logoutAdminUser }) => {
     const unbanUser = async (e, id) => {
         e.preventDefault()
         axios
-            .post('https://unicusbackend.herokuapp.com/nft/unbanNFT', {
+            .post('https://media-prime-backend.herokuapp.com/nft/unbanNFT', {
                 userId: id,
             })
             .then((req) => {

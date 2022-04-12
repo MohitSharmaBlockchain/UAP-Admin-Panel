@@ -49,7 +49,7 @@ const Orders = ({ logoutAdminUser }) => {
             },
         }
         axios
-            .get('https://unicusbackend.herokuapp.com/admin/bids', config)
+            .get('https://media-prime-backend.herokuapp.com/admin/bids', config)
             .then((result) => {
                 setData(result.data.totalBids)
                 setLoading(false)

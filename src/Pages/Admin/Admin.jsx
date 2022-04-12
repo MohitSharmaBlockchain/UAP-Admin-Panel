@@ -16,7 +16,7 @@ export const AdminsEdit = ({ logoutAdminUser }) => {
     useEffect(() => {
         const getData = async () => {
             await axios
-                .get(`https://unicusbackend.herokuapp.com/admin/getAllAdmin`)
+                .get(`https://media-prime-backend.herokuapp.com/admin/getAllAdmin`)
                 .then((res) => {
                     // console.log(res.data)
                     setAdminData(res.data)

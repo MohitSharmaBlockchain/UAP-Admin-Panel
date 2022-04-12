@@ -13,7 +13,7 @@ const Login = ({ setLogin, err, setErr }) => {
         //     password: e.target[1].value,
         // })
         axios
-            .post('https://unicusbackend.herokuapp.com/admin/login', {
+            .post('https://media-prime-backend.herokuapp.com/admin/login', {
                 email: e.target[0].value,
                 password: e.target[1].value,
             })

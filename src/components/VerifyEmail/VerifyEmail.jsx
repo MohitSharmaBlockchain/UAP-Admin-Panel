@@ -26,7 +26,7 @@ const VerifyEmail = ({ setRegister }) => {
         } else {
             axios
                 .post(
-                    `https://unicusbackend.herokuapp.com/admin/verify-email?email=${email}&token=${authenticationToken}`,
+                    `https://media-prime-backend.herokuapp.com/admin/verify-email?email=${email}&token=${authenticationToken}`,
                     {
                         password: password,
                         token: token,
