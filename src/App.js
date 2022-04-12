@@ -21,7 +21,7 @@ import Orders from './Pages/Orders/Orders'
 import Category from './Pages/Categories/Categories'
 import Login from './Pages/Login/Login'
 import { useEffect, useState } from 'react'
-import logo from './logo_white.png'
+import UAP from './UAP.jpeg'
 import { AdminsEdit } from './Pages/Admin/Admin'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail'
 
@@ -52,10 +52,10 @@ const Header = ({ isAdmin }) => {
             <Link to='/'>
                 {/* <h1 className=' first-H'>UNICUS</h1> */}
                 <img
-                    src={logo}
+                    src={UAP}
                     alt='unicus'
-                    width={'81%'}
-                    style={{ margin: '7.6px 4px' }}
+                    width={'70px'}
+                    style={{ margin: '7.6px 4px 7.6px 7px' }}
                 />
             </Link>
             <hr />
